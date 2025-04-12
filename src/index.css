@@ -59,11 +59,12 @@
   }
 }
 @layer base {
-  * {
-    @apply border-border;
+  .heading{
+    @apply text-[96px] leading-[105.6px] font-medium tracking-tight 
   }
-  body {
-    @apply bg-background text-foreground;
+
+  .center-section{
+    @apply max-w-[1320px] mx-auto
   }
 }
 

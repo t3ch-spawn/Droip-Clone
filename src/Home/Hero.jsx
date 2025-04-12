@@ -3,7 +3,7 @@ import heroPic from "@/assets/images/hero-home.webp";
 
 export default function Hero() {
   return (
-    <section className="pt-[140px] max-w-[1320px] mx-auto">
+    <section className="pt-[140px] center-section">
       {/* Bubble starting the hero */}
       <div className="bg-[#ddd9fc] text-[18px] font-semibold px-[20px] py-[8px] w-fit rounded-full tracking-tight">
         No-Code WordPress Site Builder
@@ -12,7 +12,7 @@ export default function Hero() {
       {/* Container for boxes and heading */}
       <div className="flex justify-between items-cente mt-[65px]">
         {/* Heading */}
-        <h1 className="text-[96px] leading-[110%] font-semibold tracking-tight max-w-[750px]">
+        <h1 className="heading !font-semibold max-w-[750px]">
           Break Limits. <br /> Build{" "}
           <span className="text-[#5642f3]">Anything</span>. <br /> No Code
           Needed.
