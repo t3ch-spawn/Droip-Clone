@@ -5,6 +5,7 @@ import "./App.css";
 import Hero from "./Home/Hero";
 import PixelPerfect from "./Home/PixelPerfect";
 import CreateImmersive from "./Home/CreateImmersive";
+import Scale from "./Home/Scale";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,8 @@ function App() {
       <Hero />
       <PixelPerfect/>
       <CreateImmersive/>
+      <Scale/>
+      <div className="min-h-[100vh]"></div>
     </main>
   );
 }
