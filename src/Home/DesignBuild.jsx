@@ -1,0 +1,144 @@
+import React from "react";
+import form_builder from "@/assets/images/form_builder.webp";
+import seamless_migration from "@/assets/images/seamless_migration.webp";
+import css_preview from "@/assets/images/css_preview.webp";
+import breakpoints from "@/assets/images/breakpoints.webp";
+import figma_droip from "@/assets/images/figma_droip.webp";
+import code_element from "@/assets/images/code_element.webp";
+import pop_builder from "@/assets/images/pop_builder.webp";
+import autosave from "@/assets/images/autosave.webp";
+import global_style from "@/assets/images/global_style.webp";
+import droip_ai from "@/assets/images/droip_ai.webp";
+
+export default function DesignBuild() {
+  const gridContent = [
+    {
+      heading: "Seamless migration",
+      para: "Migrate your existing design seamlessly into Droip with just a click of a button!",
+      className: "col-span-4",
+      headingClass: "text-[32px] leading-[38px]",
+      paraClass: "max-w-[360px] text-black",
+    },
+    {
+      heading: "Form builder",
+      para: "Build forms for any purpose and effortlessly manage form data natively.",
+      image: form_builder,
+      className: "col-span-2",
+      headingClass: "text-[32px] leading-[38px]",
+      paraClass: "max-w-[360px]",
+    },
+    {
+      heading: "CSS preview",
+      para: "See real-time CSS changes and fine-tune styles as you need.",
+      image: css_preview,
+      className: "col-span-2",
+      headingClass: "text-[32px] leading-[38px]",
+      paraClass: "max-w-[350px]",
+    },
+    {
+      heading: "Unlimited breakpoints",
+      para: "Achieve pixel-perfect responsiveness across all devices with unlimited breakpoints.",
+      image: breakpoints,
+      className: "col-span-1",
+    },
+    {
+      heading: "Figma to droip",
+      para: "Seamlessly import Figma designs into Droip and bring your vision to life in no time.",
+      image: figma_droip,
+      className: "col-span-1",
+    },
+    {
+      heading: "Code element",
+      para: "Add custom HTML, CSS, and JavaScript to an element for extended functionality.",
+      image: code_element,
+      className: "col-span-1",
+    },
+    {
+      heading: "Pop-up builder",
+      para: "Design engaging pop-ups that captivate visitors and boost conversions.",
+      image: pop_builder,
+      className: "col-span-1",
+    },
+    {
+      heading: "Autosave",
+      para: "Never lose progress—your work is automatically saved as you build.",
+      image: autosave,
+      className: "col-span-1",
+    },
+    {
+      heading: "Global style manager",
+      para: "Maintain consistent branding with centralized style controls.",
+      image: global_style,
+      className: "col-span-1",
+    },
+    {
+      heading: "Droip AI",
+      para: "Harness AI to accelerate your workflow and creative process.",
+      image: droip_ai,
+      className: "col-span-2",
+      paraClass: "max-w-[236px]"
+
+    },
+  ];
+
+  return (
+    <section className="center-section">
+      {/* Heading of section */}
+      <h2 className="heading">
+        Design and <br /> build everything
+      </h2>
+
+      {/* Grid container for cards */}
+      <div className="mt-[96px] grid grid-cols-4 gap-[1px] relative">
+        <DesignCard {...gridContent[0]}>
+          <img
+            src={seamless_migration}
+            className="max-h-[304px]"
+            alt="Seamless Migration"
+          />
+        </DesignCard>
+
+        {gridContent.slice(1).map((card, idx) => {
+          return <DesignCard key={idx} {...card} />;
+        })}
+
+        {/* Background blur */}
+        <div className="absolute grid-blur w-[75%] rounded-[1000px] center-x top-[-10px] bottom-[-63px] h-[100%] z-[1] opacity-[0.18]"></div>
+      </div>
+    </section>
+  );
+}
+
+function DesignCard({
+  image,
+  heading,
+  para,
+  className,
+  headingClass,
+  paraClass,
+  children,
+}) {
+  return (
+    <div
+      className={`flex justify-between  rounded-[18px] p-[32px] bg-white relative z-[2] ${className}`}
+    >
+      <div className={`flex flex-col justify-end  gap-[24px]  `}>
+        {/* Image showing if there's no children */}
+        {!children ? <img src={image} alt={heading} /> : ""}
+        {/* Heading */}
+        <h3
+          className={`text-[24px] font-semibold leading-[28.8px] ${headingClass}`}
+        >
+          {heading}
+        </h3>
+        {/* Paragraph */}
+        <p className={`text-[16px]  text-[#605C7A] font-normal ${paraClass}`}>
+          {para}
+        </p>
+      </div>
+
+      {/* This is for the first card that has the image beside the text */}
+      {children ? children : ""}
+    </div>
+  );
+}

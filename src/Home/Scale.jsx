@@ -10,6 +10,7 @@ export default function Scale() {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
+    // This Gsap code controls the scaling animation and color change animation of the cards, using scrollTrigger
     const scaleCards = gsap.utils.toArray(".scale-card");
 
     scaleCards.forEach((card, idx) => {
@@ -48,9 +49,9 @@ export default function Scale() {
   ];
 
   return (
-    <section className="bg-[#000000] pt-[128px] mt-[128px] ">
+    <section className="bg-[#000000] ">
       {/* Inner container */}
-      <div className="center-section pb-[128px]">
+      <div className="center-section">
         <h2 className="heading mb-[96px] max-w-[600px] text-white">
           Scale your business with
         </h2>
