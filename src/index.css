@@ -122,3 +122,40 @@ body {
 .timeline-image.active {
   width: 100%;
 }
+
+.footer-icon:hover {
+  background-color: white;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-arrow:hover .arrow-tail {
+  width: 11px;
+}
+
+.purple-divider {
+  background: linear-gradient(
+    90deg,
+    rgba(86, 65, 243, 0) 0%,
+    #5641f3 62%,
+    rgba(86, 65, 243, 1) 100%
+  );
+
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1px;
+}
+
+.app-card > * {
+  transition: 0.3s ease-in-out;
+}
+
+.app-card:hover > * {
+  transform: scale(1.3);
+}
+
+.blur {
+  filter: blur(3px);
+}

@@ -9,6 +9,7 @@ import pop_builder from "@/assets/images/pop_builder.webp";
 import autosave from "@/assets/images/autosave.webp";
 import global_style from "@/assets/images/global_style.webp";
 import droip_ai from "@/assets/images/droip_ai.webp";
+import LinesAndCircle from "./Reusables/LinesAndCircle";
 
 export default function DesignBuild() {
   const gridContent = [
@@ -76,8 +77,7 @@ export default function DesignBuild() {
       para: "Harness AI to accelerate your workflow and creative process.",
       image: droip_ai,
       className: "col-span-2",
-      paraClass: "max-w-[236px]"
-
+      paraClass: "max-w-[236px]",
     },
   ];
 
@@ -87,6 +87,18 @@ export default function DesignBuild() {
       <h2 className="heading">
         Design and <br /> build everything
       </h2>
+
+      {/* Container for linesCircle and paragraph */}
+      <div className="mt-[24px] flex gap-[24px]">
+        {/* Lines and Circle */}
+        <LinesAndCircle />
+
+        {/* Paragraph */}
+        <p className="text-[24px] leading-[28.8px] max-w-[445px] font-[300]">
+          more efficiently with the <strong className="font-semibold">most advanced</strong> granular
+          controls
+        </p>
+      </div>
 
       {/* Grid container for cards */}
       <div className="mt-[96px] grid grid-cols-4 gap-[1px] relative">

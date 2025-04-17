@@ -1,7 +1,29 @@
 import React from "react";
 import heroPic from "@/assets/images/hero-home.webp";
+import BtnArrow from "./Reusables/BtnArrow";
+import { useGSAP } from "@gsap/react";
+import Lenis from "lenis";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 export default function Hero() {
+  useGSAP(() => {
+    // Initialize a new Lenis instance for smooth scrolling
+    const lenis = new Lenis();
+
+    // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+    lenis.on("scroll", ScrollTrigger.update);
+
+    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+    // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+    });
+
+    // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+    gsap.ticker.lagSmoothing(0);
+  });
+
   return (
     <section className="pt-[140px] center-section">
       {/* Bubble starting the hero */}
@@ -34,14 +56,16 @@ export default function Hero() {
             Watch Intro
           </button>
 
-          <button className="mt-[8px] w-full h-[44px] rounded-[18px] bg-[#5642f3] text-white text-[18px]">
-            Get Started with Droip
-          </button>
+          <BtnArrow content={"Get Started with Droip"} />
         </div>
       </div>
 
       {/* Container for picture of hero */}
-      <img src={heroPic} alt="hero picture" className="mt-[120px] aspect-auto" />
+      <img
+        src={heroPic}
+        alt="hero picture"
+        className="mt-[120px] aspect-auto"
+      />
     </section>
   );
 }

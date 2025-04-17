@@ -3,8 +3,6 @@ import React from "react";
 export default function StreamLined() {
   return (
     <svg
-      class="dlsafaksfa"
-      dataDroip="dpv4lbml"
       xmlns="http://www.w3.org/2000/svg"
       width="32"
       height="33"

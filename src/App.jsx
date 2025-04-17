@@ -9,6 +9,8 @@ import Scale from "./Home/Scale";
 import Dependencies from "./Home/Dependencies";
 import Performance from "./Home/Performance";
 import DesignBuild from "./Home/DesignBuild";
+import Footer from "./Home/Footer";
+import AppIntegration from "./Home/AppIntegration";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,8 +23,9 @@ function App() {
       <Scale />
       <Dependencies />
       <Performance />
+      <AppIntegration />
       <DesignBuild />
-      <div className="min-h-[100vh]"></div>
+      <Footer />
     </main>
   );
 }

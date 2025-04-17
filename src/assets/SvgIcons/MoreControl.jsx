@@ -3,8 +3,6 @@ import React from "react";
 export default function MoreControl() {
   return (
     <svg
-      class="dlsafaksfa"
-      dataDroip="dpbjkq9e"
       xmlns="http://www.w3.org/2000/svg"
       width="26"
       height="27"
