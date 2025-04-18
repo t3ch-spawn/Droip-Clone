@@ -17,6 +17,17 @@ export default function Hero() {
 
     // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
     lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", (e) => {
+      if (e.direction === 1) {
+        gsap.to("nav", {
+          translateY: "-100%",
+        });
+      } else{
+        gsap.to("nav", {
+          translateY: "0%",
+        });
+      }
+    });
 
     // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
     // This ensures Lenis's smooth scroll animation updates on each GSAP tick

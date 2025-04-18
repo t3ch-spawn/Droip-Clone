@@ -70,73 +70,81 @@ export default function Navbar() {
     if (isNavOpen) {
       navTimeline.current?.reverse();
       setIsNavOpen(false);
+      gsap.to("nav", {
+        background: "initial",
+      });
     } else {
       navTimeline.current?.play();
       setIsNavOpen(true);
+      gsap.to("nav", {
+        background: "transparent",
+      });
     }
   }
 
   return (
     <>
-      <nav className="flex items-center justify-between max-w-[1320px] -990:max-w-[820px] -768:max-w-[640px] mx-auto py-[12px] pt-[18px] px-[20px] relative z-[40]">
-        {/* Container for logo and links */}
-        <div className="flex items-center gap-[64px]">
-          <DroipNav />
-          <ul className="flex gap-[14px] items-center justify-start -990:hidden">
-            {/* Mapping out nav items */}
-            {navList.map((item, idx) => {
-              return (
-                <a
-                  key={idx}
-                  href={item.name}
-                  className={`text-[14px] p-[10px] font-medium leading-[100%] ${
-                    idx !== 0 ? "text-[#605c7a]" : "text-black"
-                  }`}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-          </ul>
-        </div>
+      <nav className="z-[40] sticky top-0 bg-[#f5f5f7db] -990:bg-[#ffffffb8] w-full">
+        <div className="flex items-center justify-between max-w-[1320px] -990:max-w-[820px] -768:max-w-[640px] mx-auto py-[12px] pt-[18px] px-[20px] ">
+          {/* Container for logo and links */}
+          <div className="flex items-center gap-[64px]">
+            <DroipNav />
+            <ul className="flex gap-[14px] items-center justify-start -990:hidden">
+              {/* Mapping out nav items */}
+              {navList.map((item, idx) => {
+                return (
+                  <a
+                    key={idx}
+                    href={item.name}
+                    className={`text-[14px] p-[10px] font-medium leading-[100%] ${
+                      idx !== 0 ? "text-[#605c7a]" : "text-black"
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
+            </ul>
+          </div>
 
-        {/* Container for login and get started */}
-        <div className="flex items-center gap-[18px] -990:hidden">
-          <a
-            href=""
-            className="text-[#605c7a] text-[14px] font-medium p-[10px] mr-[11px]"
-          >
-            Login
-          </a>
-          <a href="#">
-            <button className="bg-[#5641f3] rounded-[12px] text-[14px] py-[8px] px-[16px] h-[36px] text-white">
-              Get Started
-            </button>
-          </a>
-        </div>
+          {/* Container for login and get started */}
+          <div className="flex items-center gap-[18px] -990:hidden">
+            <a
+              href=""
+              className="text-[#605c7a] text-[14px] font-medium p-[10px] mr-[11px]"
+            >
+              Login
+            </a>
+            <a href="#">
+              <button className="bg-[#5641f3] rounded-[12px] text-[14px] py-[8px] px-[16px] h-[36px] text-white">
+                Get Started
+              </button>
+            </a>
+          </div>
 
-        {/* Container for hamburger and X */}
-        <div className="relative h-[14px] w-[21px]  justify-center items-center hidden -990:flex">
-          {" "}
-          {/* Hamburger */}
-          <button
-            onClick={ToggleNav}
-            className="flex flex-col justify-between h-full w-full absolute"
-          >
-            <div className="burger-line ham-line scale-x-100 origin-left "></div>
-            <div className="burger-line ham-line scale-x-100 origin-right "></div>
-            <div className="burger-line ham-line scale-x-100 origin-left "></div>
-
-            {/* X */}
-          </button>
-          <button
-            onClick={ToggleNav}
-            className="h-full translate-x-[4px] w-full absolute"
-          >
+          {/* Container for hamburger and X */}
+          <div className="relative h-[14px] w-[21px]  justify-center items-center hidden -990:flex">
             {" "}
-            <div className="x-line !h-[2px] burger-line rotate-[45deg]  translate-y-[-330%] w-0  origin-left"></div>
-            <div className="x-line !h-[2px] burger-line rotate-[-45deg] translate-y-[6px]  w-0 origin-left"></div>
-          </button>
+            {/* Hamburger */}
+            <button
+              onClick={ToggleNav}
+              className="flex flex-col justify-between h-full w-full absolute"
+            >
+              <div className="burger-line ham-line scale-x-100 origin-left "></div>
+              <div className="burger-line ham-line scale-x-100 origin-right "></div>
+              <div className="burger-line ham-line scale-x-100 origin-left "></div>
+
+              {/* X */}
+            </button>
+            <button
+              onClick={ToggleNav}
+              className="h-full translate-x-[4px] w-full absolute"
+            >
+              {" "}
+              <div className="x-line !h-[2px] burger-line rotate-[45deg]  translate-y-[-330%] w-0  origin-left"></div>
+              <div className="x-line !h-[2px] burger-line rotate-[-45deg] translate-y-[6px]  w-0 origin-left"></div>
+            </button>
+          </div>
         </div>
       </nav>
 

@@ -92,8 +92,18 @@ body {
   font-family: "Inter";
 }
 
+nav {
+  backdrop-filter: blur(15px);
+}
+
+@media screen and (max-width: 990px) {
+  nav {
+    backdrop-filter: opacity(100%) blur(72px);
+  }
+}
+
 .nav-drawer {
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: #ffffffb8;
   backdrop-filter: opacity(100%) blur(72px);
 }
 
@@ -227,5 +237,4 @@ body {
 .scale-section {
   clip-path: inset(0 0 0 0);
   position: relative;
-
 }
