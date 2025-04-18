@@ -69,7 +69,7 @@ function ScaleCard({ heading, para, pic, alt }) {
     <div className="pl-[48px] py-[48px] -768:p-[32px] rounded-[28px] flex -768:flex-col items-start justify-between gap-[40px] bg-[#ebe8fd] h-[80vh] max-h-[740px] -990:rounded-[14px] -990:max-h-[500px] -768:max-h-[800px] -990:h-[70vh] -990:top-[15vh] -575:px-[18px] mb-[80px] scale-card sticky top-[10vh]">
       {/* Container for typography */}
       <div className="flex flex-col justify-between -768:justify-start -768:gap-[32px] h-full pb-[64px] items-start max-w-[320px]">
-        <h3 className="text-[32px] -990:text-[24px] font-semibold leading-[118.8%] ">
+        <h3 className="text-[32px] -990:text-[24px] font-semibold leading-[117.8%] ">
           {heading}
         </h3>
 
@@ -92,7 +92,7 @@ function ScaleCard({ heading, para, pic, alt }) {
       <div className="overflow-hidden h-full rounded-l-[18px] -768:rounded-[9px] w-full max-w-[874px]">
         <img
           src={pic}
-          className="object-right h-full min-w-[872px] -768:min-w-full"
+          className=" h-full w-full object-cover object-left aspect-[19/14]"
           alt={alt}
         />
       </div>

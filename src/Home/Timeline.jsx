@@ -52,12 +52,12 @@ export default function Timeline({ timelineContent, containerClass }) {
   return (
     // Container for timeline and picture
     <div
-      className={`flex justify-between relative -990:flex-col ${containerClass}`}
+      className={`flex justify-between relative gap-[16px] -990:flex-col ${containerClass}`}
     >
       {/* Container for timeline */}
       <Accordion
-        defaultValue={"Advanced typography"}
-        className="flex flex-col gap-[65px] relative"
+        defaultValue={timelineContent[0].heading}
+        className="flex flex-col gap-[65px] relative min-w-[400px] -990:min-w-full"
       >
         {/* line that goes through the bubbles */}
         <div className="w-[2px] h-[90%] absolute left-[17px] top-[10px] bg-[#ddd9fc] z-[1]"></div>
@@ -67,7 +67,7 @@ export default function Timeline({ timelineContent, containerClass }) {
             <AccordionItem
               key={idx}
               value={item.heading}
-              className=" max-w-[420px] timeline-item"
+              className=" max-w-[420px] -990:max-w-full timeline-item"
               onClick={triggerItem}
             >
               {/* Container for heading and bubble */}
@@ -92,7 +92,7 @@ export default function Timeline({ timelineContent, containerClass }) {
                   {item.heading}
                 </h3>
               </AccordionTrigger>
-              <AccordionContent className="max-w-[344px] ml-[57px] !p-0 !pb-[22px]">
+              <AccordionContent className="max-w-[344px] -990:max-w-full ml-[57px] !p-0 !pb-[22px]">
                 {/* Typography */}
                 <p className=" mt-[18px] leading-[22.4px] text-[16px] text-[#373542]">
                   {item.para}
@@ -106,13 +106,20 @@ export default function Timeline({ timelineContent, containerClass }) {
                     View Details
                   </button>
                 )}
+
+                {/* Image showing only on mobile */}
+                <img
+                  src={item.image}
+                  className="w-full hidden -990:block rounded-[12px] mt-[18px] aspect-[363/269] overflow-hidden"
+                  alt=""
+                />
               </AccordionContent>
             </AccordionItem>
           );
         })}
       </Accordion>
 
-      <div className="h-[538px] -990:hidden w-full max-w-[726px] relative overflow-hidden origin-left">
+      <div className="h-[538px] -990:hidden w-full max-w-[726px] rounded-[18px]  relative overflow-hidden origin-left">
         {timelineContent.map((item, idx) => {
           {
             /* Container for picture */

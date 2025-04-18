@@ -66,7 +66,7 @@ export default function Hero() {
       <img
         src={heroPic}
         alt="hero picture"
-        className="mt-[96px] -990:mt-[60px] aspect-auto"
+        className="mt-[96px] -990:mt-[60px] w-full aspect-[1280/733]"
       />
     </section>
   );
