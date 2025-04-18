@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import gsap from "gsap";
+import ParallaxContainer from "./Reusables/ParallaxContainer";
 
 export default function Timeline({ timelineContent, containerClass }) {
   function triggerItem(e) {
@@ -108,10 +109,11 @@ export default function Timeline({ timelineContent, containerClass }) {
                 )}
 
                 {/* Image showing only on mobile */}
-                <img
-                  src={item.image}
-                  className="w-full hidden -990:block rounded-[12px] mt-[18px] aspect-[363/269] overflow-hidden"
-                  alt=""
+
+                <ParallaxContainer
+                  imgSrc={item.image}
+                  className="w-full hidden -990:block rounded-[12px] mt-[18px]  overflow-hidden"
+                  imgClass="aspect-[363/269]"
                 />
               </AccordionContent>
             </AccordionItem>
@@ -133,10 +135,9 @@ export default function Timeline({ timelineContent, containerClass }) {
                 item.imgClass
               } ${idx === 0 ? "active" : ""}`}
             >
-              <img
-                src={item.image}
-                alt="pixel perfect"
-                className={`rounded-[18px] h-full w-auto absolute  inset-0 origin-left min-w-[726px]`}
+              <ParallaxContainer
+                imgSrc={item.image}
+                className="rounded-[18px] h-full w-auto absolute  inset-0 origin-left min-w-[726px]"
               />
             </div>
           );

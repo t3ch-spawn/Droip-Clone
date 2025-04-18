@@ -260,3 +260,10 @@ nav {
 .btn-underline:hover svg {
   transform: translateX(8px);
 }
+
+.bg-cursor {
+  filter: opacity(100%) blur(143px);
+  pointer-events: none;
+}
+
+

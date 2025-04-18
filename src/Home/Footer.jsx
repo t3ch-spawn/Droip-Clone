@@ -6,6 +6,7 @@ import Twitter from "@/assets/SvgIcons/Twitter";
 import Youtube from "@/assets/SvgIcons/Youtube";
 import React from "react";
 import BtnArrow from "./Reusables/BtnArrow";
+import gsap from "gsap";
 
 export default function Footer() {
   const allLinks = [
@@ -60,24 +61,40 @@ export default function Footer() {
       ],
     },
   ];
+  function moveBg(e) {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    gsap.to(".bg-cursor.footer", {
+      left: x,
+      top: y,
+      delay: 0.1,
+      opacity: 0.48,
+    });
+  }
 
   return (
     <footer className="center-section py-0">
       {/* Get started container*/}
-      <div className="flex -768:flex-col -990:gap-[30px] justify-between items-start p-[64px] -990:p-[32px] bg-[#000000] rounded-[18px] text-white max-h-[270px] -768:max-h-fit">
+      <div
+        onMouseMove={moveBg}
+        className="flex -768:flex-col -990:gap-[30px] justify-between items-start p-[64px] -990:p-[32px] bg-[#000000] rounded-[18px] text-white max-h-[270px] -768:max-h-fit relative overflow-hidden"
+      >
         {/* Heading */}
-        <h2 className="text-[64px] -990:text-[36px] font-medium leading-[109.4%] tracking-tight max-w-[370px] -990:max-w-[200px]">
+        <h2 className="text-[64px] -990:text-[36px] font-medium leading-[109.4%] tracking-tight max-w-[370px] -990:max-w-[200px] relative z-[3]">
           Get Started For Free
         </h2>
 
         {/* Container for typography and cta */}
-        <div className="flex flex-col items-start gap-[32px] max-w-[364px] -990:max-w-[301px] -990:text-[12px] -768:max-w-full ">
+        <div className="flex flex-col items-start gap-[32px] max-w-[364px] -990:max-w-[301px] -990:text-[12px] -768:max-w-full relative z-[3]">
           <p>
             Experience the power of Droip no-code website builder, risk free.
             Create stunning, responsive sites with pure creative freedom.
           </p>
           <BtnArrow className="mt-0" content={"Try for Free"} />
         </div>
+
+        <div className="absolute w-[732px] h-[496px] bg-[#5641f3] bg-cursor footer translate-x-[-50%] translate-y-[-50%] z-[2] opacity-[0.48] left-[100%]"></div>
       </div>
 
       {/* Container for links and social links */}

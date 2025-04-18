@@ -7,6 +7,7 @@ import { CustomEase, ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Video from "@/assets/SvgIcons/Video";
 import SplitType from "split-type";
+import ParallaxContainer from "./Reusables/ParallaxContainer";
 
 export default function Hero() {
   gsap.registerPlugin(CustomEase);
@@ -22,7 +23,7 @@ export default function Hero() {
         gsap.to("nav", {
           translateY: "-100%",
         });
-      } else{
+      } else {
         gsap.to("nav", {
           translateY: "0%",
         });
@@ -155,10 +156,10 @@ export default function Hero() {
       </div>
 
       {/* Container for picture of hero */}
-      <img
-        src={heroPic}
-        alt="hero picture"
-        className="mt-[96px] -990:mt-[60px] w-full aspect-[1280/733] hero-image border-[#ddd9fd] rounded-[14px] border-[8px]"
+      <ParallaxContainer
+        className="mt-[96px] -990:mt-[60px] w-full  hero-image border-[#ddd9fd] rounded-[14px] border-[8px]"
+        imgSrc={heroPic}
+        imgClass="aspect-[1280/733] w-full"
       />
     </section>
   );

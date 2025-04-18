@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import RightArrow from "@/assets/SvgIcons/RightArrow";
+import ParallaxContainer from "./Reusables/ParallaxContainer";
 
 export default function Scale() {
   gsap.registerPlugin(ScrollTrigger);
@@ -92,10 +93,10 @@ function ScaleCard({ heading, para, pic, alt }) {
 
       {/* Image */}
       <div className="overflow-hidden h-full rounded-l-[18px] -768:rounded-[9px] w-full max-w-[874px]">
-        <img
-          src={pic}
-          className=" h-full w-full object-cover object-left aspect-[19/14]"
-          alt={alt}
+        <ParallaxContainer
+          imgSrc={pic}
+          className="h-full w-full object-cover object-left aspect-[19/14]"
+          imgClass="aspect-[19/14]"
         />
       </div>
     </div>
