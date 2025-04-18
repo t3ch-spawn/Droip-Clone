@@ -92,10 +92,42 @@ body {
   font-family: "Inter";
 }
 
-.nav-drawer{
-  background-color: rgba(255,255,255,0.72);
+.nav-drawer {
+  background-color: rgba(255, 255, 255, 0.72);
   backdrop-filter: opacity(100%) blur(72px);
+}
 
+.bg-anim.white .word {
+  --stop: 0%;
+  --inv: 100%;
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white var(--stop),
+    rgba(225, 225, 225, 0.4) var(--stop),
+    rgba(225, 225, 225, 0.4) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-anim.black .word {
+  --stop: 0%;
+  --inv: 100%;
+  background: linear-gradient(
+    to right,
+    black 0%,
+    black var(--stop),
+    rgba(0, 0, 0, 0.4) var(--stop),
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.word {
+  vertical-align: bottom;
+  overflow: hidden;
 }
 
 .grid-blur {
@@ -114,7 +146,6 @@ body {
 
 .timeline-bubble {
   transition: 0.3s ease-in-out;
-
 }
 
 .timeline-bubble.active {
@@ -128,7 +159,6 @@ body {
   /* transform: translateX(-100%); */
   transition: 0.7s;
   width: 0%;
-
 }
 
 .timeline-image.active {
@@ -192,4 +222,9 @@ body {
   .icons-grid {
     grid-template-columns: repeat(auto-fit, minmax(68px, 1fr));
   }
+}
+
+.scale-section {
+  clip-path: inset(0 0 0 0);
+  position: relative;
 }

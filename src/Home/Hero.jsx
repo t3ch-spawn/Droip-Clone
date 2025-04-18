@@ -3,11 +3,14 @@ import heroPic from "@/assets/images/hero-home.webp";
 import BtnArrow from "./Reusables/BtnArrow";
 import { useGSAP } from "@gsap/react";
 import Lenis from "lenis";
-import { ScrollTrigger } from "gsap/all";
+import { CustomEase, ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Video from "@/assets/SvgIcons/Video";
+import SplitType from "split-type";
 
 export default function Hero() {
+  gsap.registerPlugin(CustomEase);
+
   useGSAP(() => {
     // Initialize a new Lenis instance for smooth scrolling
     const lenis = new Lenis();
@@ -23,6 +26,77 @@ export default function Hero() {
 
     // Disable lag smoothing in GSAP to prevent any delay in scroll animations
     gsap.ticker.lagSmoothing(0);
+
+    // Animation for headings
+    const split = new SplitType(".split, .bg-anim, .heading-anim", {
+      types: "words,chars",
+    });
+
+    const allHeadings = document.querySelectorAll(".heading-anim");
+    const bgHeadings = document.querySelectorAll(".bg-anim");
+
+    // // Animations for all big paragraphs
+    const myEase =
+      "M0,0 C0.077,0.345 0.076,0.486 0.113,0.641 0.127,0.707 0.165,0.817 0.203,0.855 0.222,0.874 0.263,0.909 0.286,0.922 0.336,0.951 0.39,0.967 0.463,0.976 0.522,0.983 0.593,1 0.684,1 0.77,1.002 0.873,1 1,1 ";
+
+    allHeadings.forEach((heading) => {
+      const chars = heading.querySelectorAll(".char");
+      gsap.set(chars, { y: 100, opacity: 0 });
+    });
+
+    const observerOptions = {
+      root: null, // Observes within the viewport
+      threshold: 0.6, // Trigger when 80% of the heading is visible
+    };
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const chars = entry.target.querySelectorAll(".char");
+          const words = entry.target.querySelectorAll(".word");
+          gsap
+            .timeline()
+            .to(chars, {
+              y: 0,
+              opacity: 1,
+              duration: 1.3,
+              ease: CustomEase.create("custom", myEase),
+            })
+            .to(
+              words,
+              {
+                overflow: "visible",
+              },
+              "<0.5"
+            );
+
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    allHeadings.forEach((heading) => {
+      observer.observe(heading);
+    });
+
+    // This is for animation that have a masked color reveal effect, it animates the background stop value
+    bgHeadings.forEach((heading) => {
+      const words = heading.querySelectorAll(".word");
+      gsap.to(words, {
+        duration: 1,
+        ease: "power2.inOut",
+        "--stop": "100%",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: heading,
+        },
+      });
+    });
   });
 
   return (

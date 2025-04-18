@@ -35,7 +35,7 @@ export default function Dependencies() {
   return (
     <section className="center-section">
       {/*heading  */}
-      <h2 className="heading-2 max-w-[350px] -990:font-medium">
+      <h2 className="heading-2 max-w-[400px] -990:font-medium heading-anim">
         Low <br /> third-party dependencies
       </h2>
 

@@ -84,7 +84,7 @@ export default function DesignBuild() {
   return (
     <section className="center-section">
       {/* Heading of section */}
-      <h2 className="heading">
+      <h2 className="heading bg-anim black">
         Design and <br /> build everything
       </h2>
 

@@ -49,10 +49,10 @@ export default function Scale() {
   ];
 
   return (
-    <section className="bg-[#000000]">
+    <section className="bg-[#000000] scale-section">
       {/* Inner container */}
-      <div className="center-section">
-        <h2 className="heading mb-[96px] max-w-[600px] text-white">
+      <div className="center-section ">
+        <h2 className="heading mb-[96px] max-w-[600px] text-transparent bg-anim white">
           Scale your business with
         </h2>
 

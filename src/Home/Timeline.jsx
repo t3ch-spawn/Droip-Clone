@@ -60,7 +60,7 @@ export default function Timeline({ timelineContent, containerClass }) {
         className="flex flex-col gap-[65px] relative min-w-[400px] -990:min-w-full"
       >
         {/* line that goes through the bubbles */}
-        <div className="w-[2px] h-[90%] absolute left-[17px] top-[10px] bg-[#ddd9fc] z-[1]"></div>
+        <div className="w-[2px] h-[90%] -990:h-[95%] absolute left-[17px] top-[10px] bg-[#ddd9fc] z-[1]"></div>
 
         {timelineContent.map((item, idx) => {
           return (
@@ -72,7 +72,7 @@ export default function Timeline({ timelineContent, containerClass }) {
             >
               {/* Container for heading and bubble */}
 
-              <AccordionTrigger className="flex gap-[20px] items-start justify-start">
+              <AccordionTrigger className="flex gap-[20px] -575:gap-[12px] items-start justify-start">
                 {/* Bubble */}
                 <div className="bg-[#f5f5f7]  h-[37px] min-w-[37px] rounded-full flex justify-center items-center relative z-[3]">
                   <div
@@ -85,14 +85,14 @@ export default function Timeline({ timelineContent, containerClass }) {
 
                 {/* Heading */}
                 <h3
-                  className={` font-semibold text-left timeline-heading tracking-tight text-[32px] origin-left translate-y-[-5px] scale-75 opacity-50 duration-300 ease-in-out ${
+                  className={` font-semibold text-left timeline-heading tracking-tight text-[32px] origin-left translate-y-[-5px] -575:translate-y-0 scale-75 opacity-50 duration-300 ease-in-out -575:text-[24px] ${
                     idx === 0 ? "active" : ""
                   }`}
                 >
                   {item.heading}
                 </h3>
               </AccordionTrigger>
-              <AccordionContent className="max-w-[344px] -990:max-w-full ml-[57px] !p-0 !pb-[22px]">
+              <AccordionContent className="max-w-[344px] -990:max-w-full ml-[57px] -575:ml-[48px] !p-0 !pb-[22px]">
                 {/* Typography */}
                 <p className=" mt-[18px] leading-[22.4px] text-[16px] text-[#373542]">
                   {item.para}

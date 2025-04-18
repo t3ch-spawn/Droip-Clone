@@ -8,7 +8,7 @@ export default function Performance() {
       {/* Actual container */}
       <div className="center-section">
         {/* Heading */}
-        <h2 className="heading-2 text-white text-center mx-auto -575:text-[32px] -575:font-medium">
+        <h2 className="heading-2 text-white text-center mx-auto -575:text-[32px] -575:font-medium bg-anim white">
           Performance that <br /> sets you apart
         </h2>
 

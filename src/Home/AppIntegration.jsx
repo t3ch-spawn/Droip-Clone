@@ -74,7 +74,7 @@ export default function AppIntegration() {
 
   return (
     <section className="center-section">
-      <h2 className="heading">
+      <h2 className="heading bg-anim black">
         App <br /> Integration
       </h2>
 

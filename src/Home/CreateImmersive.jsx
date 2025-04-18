@@ -39,7 +39,7 @@ export default function CreateImmersive() {
   return (
     <section className="center-section">
       {/* Heading of section */}
-      <h2 className="heading max-w-[1100px] mb-[135px]">
+      <h2 className="heading max-w-[1100px] mb-[135px] bg-anim black">
         Craft engaging and immersive interactions
       </h2>
 
