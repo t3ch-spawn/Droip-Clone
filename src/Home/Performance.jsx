@@ -33,7 +33,7 @@ export default function Performance() {
 
 function PerformanceCard({ heading, para, image }) {
   return (
-    <div className="rounded-[18px] bg-[#e1e1e11a] flex flex-col text-white max-h-[480px] overflow-hidden">
+    <div className="grid-card rounded-[18px] bg-[#e1e1e11a] flex flex-col text-white max-h-[480px] overflow-hidden">
       <div className="p-[48px] -990:p-[32px] -768:p-[24px] -768:gap-[18px]  gap-[24px] flex flex-col">
         {/* heading */}
         <h3 className="text-[32px] -990:text-[28px] -768:text-[24px] tracking-tight leading-[118.8%] font-semibold">{heading}</h3>

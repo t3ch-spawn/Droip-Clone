@@ -97,6 +97,13 @@ export default function Hero() {
         },
       });
     });
+
+    // Animating the opacity of the hero image in on load
+    gsap.from(".hero-image", {
+      opacity: 0,
+      delay: 0.5,
+      duration: 1,
+    });
   });
 
   return (
@@ -140,7 +147,7 @@ export default function Hero() {
       <img
         src={heroPic}
         alt="hero picture"
-        className="mt-[96px] -990:mt-[60px] w-full aspect-[1280/733]"
+        className="mt-[96px] -990:mt-[60px] w-full aspect-[1280/733] hero-image border-[#ddd9fd] rounded-[14px] border-[8px]"
       />
     </section>
   );

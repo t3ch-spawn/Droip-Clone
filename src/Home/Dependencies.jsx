@@ -35,7 +35,7 @@ export default function Dependencies() {
   ];
 
   useGSAP(() => {
-    // Animating grid cards into view, for dependencies and designBuild sections
+    // Animating grid cards into view, for dependencies, performance and designBuild sections
     const allCards = document.querySelectorAll(".grid-card");
     allCards.forEach((card) => {
       gsap.from(card, {
