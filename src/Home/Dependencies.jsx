@@ -2,6 +2,8 @@ import CostEffective from "@/assets/SvgIcons/CostEffective";
 import MoreControl from "@/assets/SvgIcons/MoreControl";
 import SimpleWorkflow from "@/assets/SvgIcons/SimpleWorkflow";
 import StreamLined from "@/assets/SvgIcons/StreamLined";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import React from "react";
 
 export default function Dependencies() {
@@ -32,6 +34,20 @@ export default function Dependencies() {
     },
   ];
 
+  useGSAP(() => {
+    // Animating grid cards into view, for dependencies and designBuild sections
+    const allCards = document.querySelectorAll(".grid-card");
+    allCards.forEach((card) => {
+      gsap.from(card, {
+        autoAlpha: 0,
+        y: 100,
+        scrollTrigger: {
+          trigger: card,
+        },
+      });
+    });
+  });
+
   return (
     <section className="center-section">
       {/*heading  */}
@@ -61,6 +77,7 @@ export default function Dependencies() {
             // controls
             style={{ objectFit: "fill" }}
             poster=""
+            className="aspect-[757/396]"
           >
             <source
               type="video/mp4"
@@ -76,7 +93,7 @@ export default function Dependencies() {
 function DependencyCard({ heading, icon, para, className, children }) {
   return (
     <div
-      className={`flex flex-col max-w-[439px] -768:max-w-full rounded-[18px] p-[48px] -990:p-[32px] -768:p-[24px] bg-white relative z-[2] ${className}`}
+      className={`grid-card flex flex-col max-w-[439px] -768:max-w-full rounded-[18px] p-[48px] -990:p-[32px] -768:p-[24px] bg-white relative z-[2] ${className}`}
     >
       {/* This children prop is for the video element primarily */}
       {children ? (

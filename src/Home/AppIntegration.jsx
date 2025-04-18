@@ -24,6 +24,8 @@ import Zendesk from "@/assets/SvgIcons/Zendesk";
 import Zoho from "@/assets/SvgIcons/Zoho";
 import React from "react";
 import LinesAndCircle from "./Reusables/LinesAndCircle";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function AppIntegration() {
   const gridIcons = [
@@ -72,6 +74,17 @@ export default function AppIntegration() {
     }
   }
 
+  useGSAP(() => {
+    // Animation for icon cards
+    gsap.from(".app-card", {
+      scale: 0,
+      stagger: 0.04,
+      scrollTrigger: {
+        trigger: ".icons-grid",
+      },
+    });
+  });
+
   return (
     <section className="center-section">
       <h2 className="heading bg-anim black">
@@ -81,7 +94,7 @@ export default function AppIntegration() {
       {/* Container for linesCircle and paragraph */}
       <div className="mt-[24px] flex gap-[24px]">
         {/* Lines and Circle */}
-        <LinesAndCircle />  
+        <LinesAndCircle />
 
         {/* Paragraph */}
         <p className="text-[24px] -768:text-[18px] leading-[120%] max-w-[445px]">
@@ -103,7 +116,7 @@ export default function AppIntegration() {
               onMouseLeave={(e) => {
                 blurCards(e, "unblur");
               }}
-              className="bg-[#ebe8fe] hover:bg-[#c9c2fb] app-card duration-300 ease-in-out min-h-[110px] -990:min-h-[100px] -768:min-h-[80px] -575:min-h-[64px] rounded-[18px] flex justify-center items-center "
+              className="bg-[#ebe8fe] hover:bg-[#c9c2fb] app-card  min-h-[110px] -990:min-h-[100px] -768:min-h-[80px] -575:min-h-[64px] rounded-[18px] flex justify-center items-center "
             >
               {icon}
             </div>

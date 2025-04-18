@@ -108,7 +108,7 @@ export default function DesignBuild() {
         <DesignCard {...gridContent[0]}>
           <img
             src={seamless_migration}
-            className="max-h-[304px] w-full max-w-[620px]"
+            className="max-h-[304px] w-full max-w-[620px] aspect-[155/76]"
             alt="Seamless Migration"
           />
         </DesignCard>
@@ -136,7 +136,7 @@ function DesignCard({
 }) {
   return (
     <div
-      className={`flex justify-between  rounded-[18px] p-[32px] -575:p-[24px] bg-white relative z-[2] ${className}`}
+      className={`grid-card flex justify-between  rounded-[18px] p-[32px] -575:p-[24px] bg-white relative z-[2] ${className}`}
     >
       <div className={`flex flex-col justify-end  gap-[24px]  `}>
         {/* Image showing if there's no children */}

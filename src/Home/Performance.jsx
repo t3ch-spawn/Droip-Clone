@@ -43,7 +43,7 @@ function PerformanceCard({ heading, para, image }) {
       </div>
 
       {/* Image */}
-      <img src={image} className="" alt="" />
+      <img src={image} className="aspect-[484/211]" alt="" />
     </div>
   );
 }
