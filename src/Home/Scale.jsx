@@ -5,6 +5,7 @@ import seo from "@/assets/images/seo.webp";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import RightArrow from "@/assets/SvgIcons/RightArrow";
 
 export default function Scale() {
   gsap.registerPlugin(ScrollTrigger);
@@ -80,10 +81,11 @@ function ScaleCard({ heading, para, pic, alt }) {
           </p>
 
           <button
-            className="font-semibold text-[#5641F3] mt-[24px]"
+            className="font-semibold text-[#5641F3] mt-[24px] btn-underline flex gap-[8px]"
             aria-label="View Details"
           >
-            View Details
+            <p className="relative"> View Details</p>
+            <RightArrow />
           </button>
         </div>
       </div>
