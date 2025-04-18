@@ -11,12 +11,14 @@ import Performance from "./Home/Performance";
 import DesignBuild from "./Home/DesignBuild";
 import Footer from "./Home/Footer";
 import AppIntegration from "./Home/AppIntegration";
+import Navbar from "./Home/Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <main className="bg-[#f5f5f7] min-h-[100vh]">
+      <Navbar />
       <Hero />
       <PixelPerfect />
       <CreateImmersive />

@@ -10,8 +10,9 @@ import BtnArrow from "./Reusables/BtnArrow";
 export default function Footer() {
   const allLinks = [
     {
-      containerClass: "",
+      containerClass: "-768:order-[5] -768:flex-row -768:gap-[32px]",
       heading: "Social",
+      linkListClass: "-768:flex-row -768:translate-y-[-3px] -768:gap-[12px]",
       links: [
         { name: <Facebook />, url: "#", icon: true },
         { name: <Twitter />, url: "#", icon: true },
@@ -63,12 +64,14 @@ export default function Footer() {
   return (
     <footer className="center-section py-0">
       {/* Get started container*/}
-      <div className="flex justify-between items-center p-[64px] bg-[#000000] rounded-[18px] text-white max-h-[270px]">
+      <div className="flex -768:flex-col -990:gap-[30px] justify-between items-start p-[64px] -990:p-[32px] bg-[#000000] rounded-[18px] text-white max-h-[270px] -768:max-h-fit">
         {/* Heading */}
-        <h2 className="heading-2 max-w-[370px]">Get Started For Free</h2>
+        <h2 className="text-[64px] -990:text-[36px] font-medium leading-[109.4%] tracking-tight max-w-[370px] -990:max-w-[200px]">
+          Get Started For Free
+        </h2>
 
         {/* Container for typography and cta */}
-        <div className="flex flex-col items-start gap-[32px] max-w-[364px]">
+        <div className="flex flex-col items-start gap-[32px] max-w-[364px] -990:max-w-[301px] -990:text-[12px] -768:max-w-full ">
           <p>
             Experience the power of Droip no-code website builder, risk free.
             Create stunning, responsive sites with pure creative freedom.
@@ -78,44 +81,48 @@ export default function Footer() {
       </div>
 
       {/* Container for links and social links */}
-      <div className="grid grid-cols-5 mt-[145px] ">
+      <div className="grid grid-cols-5 -990:grid-cols-[0.5fr_1fr_1fr_1fr_1fr] -768:grid-cols-2 -768:gap-[32px] gap-[16px] mt-[145px] ">
         {/* The allLinks contains the content for all the links. Since the structure is repititive, I mapped it out with a general structure, the "containerClass property controls the styles for each individual container" */}
         {allLinks.map((list) => {
           return (
-            <ul className="flex flex-col">
+            <ul className={`flex flex-col ${list.containerClass}`}>
               {/* List heading */}
               <h3 className="font-semibold mb-[24px] text-black">
                 {list.heading}
               </h3>
 
-              {/* Links */}
-              {list.links.map((link) => {
-                return link.icon ? (
-                  <a
-                    href="#"
-                    target="_blank"
-                    className="mb-[12px] size-[32px] rounded-full footer-icon duration-300 ease-in-out flex justify-center items-center"
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    className="text-[#605C7A] mb-[14px] hover:text-black duration-300 ease-in-out"
-                  >
-                    {link.name}
-                  </a>
-                );
-              })}
+              {/* Links List */}
+              <div className={`flex flex-col gap-[14px] ${list.linkListClass}`}>
+                {list.links.map((link, idx) => {
+                  return link.icon ? (
+                    <a
+                      key={idx}
+                      href="#"
+                      target="_blank"
+                      className="size-[32px] rounded-full footer-icon duration-300 ease-in-out flex justify-center items-center"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      className="text-[#605C7A] hover:text-black duration-300 ease-in-out -990:text-[14px] -575:text-[12px] -575:gap-[12px] -990:leading-[142.86%]"
+                    >
+                      {link.name}
+                    </a>
+                  );
+                })}
+              </div>
             </ul>
           );
         })}
       </div>
 
       {/* Container for copyright and credits  */}
-      <div className="mt-[80px] border-t-[2.4px] border-[#00000026] pt-[22px] pb-[24px] flex  justify-between items-center font-[300] text-[#00000099]">
-        <p className="">© 2025 Droip. All rights reserved</p>
+      <div className="mt-[80px] border-t-[2.4px] border-[#00000026] pt-[22px] pb-[24px] flex  justify-between items-center font-[300] text-[#00000099] flex-wrap gap-[40px] -575:gap-[24px]">
+        <p className="-768:order-3">© 2025 Droip. All rights reserved</p>
 
         {/* Themeum */}
         <div className="flex items-center gap-[8px]">

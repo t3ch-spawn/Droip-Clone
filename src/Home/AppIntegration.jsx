@@ -84,14 +84,14 @@ export default function AppIntegration() {
         <LinesAndCircle />  
 
         {/* Paragraph */}
-        <p className="text-[24px] leading-[28.8px] max-w-[445px]">
+        <p className="text-[24px] -768:text-[18px] leading-[120%] max-w-[445px]">
           Connect your go-to apps effortlessly within the builder for a smooth
           and uninterrupted workflow.
         </p>
       </div>
 
       {/* Container for icon grid */}
-      <div className="icons-grid mt-[96px]">
+      <div className="icons-grid mt-[96px] -990:mt-[60px]">
         {/* Mapping out each icon card with the icons array */}
         {gridIcons.map((icon, idx) => {
           return (
@@ -103,7 +103,7 @@ export default function AppIntegration() {
               onMouseLeave={(e) => {
                 blurCards(e, "unblur");
               }}
-              className="bg-[#ebe8fe] hover:bg-[#c9c2fb] app-card duration-300 ease-in-out min-h-[110px] rounded-[18px] flex justify-center items-center "
+              className="bg-[#ebe8fe] hover:bg-[#c9c2fb] app-card duration-300 ease-in-out min-h-[110px] -990:min-h-[100px] -768:min-h-[80px] -575:min-h-[64px] rounded-[18px] flex justify-center items-center "
             >
               {icon}
             </div>
