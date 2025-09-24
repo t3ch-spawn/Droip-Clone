@@ -1,12 +1,11 @@
-# React + Vite
+# Droip Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
+This is a clone of the website **https://droip.com/**, which I built in my free time to practice frontend development skills and animation techniques.  
 
-Currently, two official plugins are available:
+## Technologies
+I used **ReactJs**, **TailwindCSS**, and **GSAP** to build this project.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Live Site
+Hosted on Vercel  
+https://droip-clone-spawn.vercel.app/
